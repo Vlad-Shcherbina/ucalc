@@ -4,23 +4,44 @@ using UnityEngine;
 
 public class MainBehaviourScript : MonoBehaviour
 {
+    public GameObject display;
+
+    ButtonBehaviourScript pressedButton = null;
+
     void Start()
     {
-        
+        Debug.Log(new Calc());
     }
 
     void Update()
     {
-        if (!Input.GetMouseButton(0))
-        {
-            return;
-        }
         Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+        ButtonBehaviourScript hitButton = null;
         if (Physics.Raycast(ray, out hit))
         {
-            var obj = hit.collider.gameObject;
-            Debug.Log(obj.GetComponentInParent<ButtonBehaviourScript>().label);
+            hitButton = hit.collider.GetComponentInParent<ButtonBehaviourScript>();
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Assert(pressedButton == null);
+            if (hitButton)
+            {
+                pressedButton = hitButton;
+                pressedButton.pressed = true;
+            }
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (pressedButton)
+            {
+                if (hitButton == pressedButton)
+                {
+                    display.GetComponent<TextMesh>().text = pressedButton.label;
+                }
+                pressedButton.pressed = false;
+                pressedButton = null;
+            }
         }
     }
 }
