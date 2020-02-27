@@ -536,6 +536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   display: {fileID: 531140552}
+  buttonTolerance: 0.2
 --- !u!1001 &482613960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1203,7 +1204,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1381,17 +1382,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1421471917}
     m_Modifications:
-    - target: {fileID: 1431902310057105592, guid: 3b1f1b09538abef42a332d1a6a9b56a8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1431902310057105592, guid: 3b1f1b09538abef42a332d1a6a9b56a8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 1431902311609504721, guid: 3b1f1b09538abef42a332d1a6a9b56a8, type: 3}
       propertyPath: label
-      value: "\u2190"
+      value: <
       objectReference: {fileID: 0}
     - target: {fileID: 1431902311609504722, guid: 3b1f1b09538abef42a332d1a6a9b56a8, type: 3}
       propertyPath: m_LocalPosition.x

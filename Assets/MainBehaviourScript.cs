@@ -8,10 +8,11 @@ public class MainBehaviourScript : MonoBehaviour
     public float buttonTolerance;
 
     ButtonBehaviourScript pressedButton = null;
+    Calc calc = new Calc();
 
     void Start()
     {
-        Debug.Log(new Calc());
+        display.GetComponent<TextMesh>().text = calc.display;
     }
 
     void Update()
@@ -47,7 +48,9 @@ public class MainBehaviourScript : MonoBehaviour
             {
                 if (hitButton == pressedButton)
                 {
-                    display.GetComponent<TextMesh>().text = pressedButton.label;
+                    Debug.Assert(pressedButton.label.Length == 1);
+                    calc.receive(pressedButton.label[0]);
+                    display.GetComponent<TextMesh>().text = calc.display;
                 }
                 pressedButton.pressed = false;
                 pressedButton = null;
