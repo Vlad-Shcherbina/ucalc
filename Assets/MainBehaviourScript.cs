@@ -12,7 +12,7 @@ public class MainBehaviourScript : MonoBehaviour
 
     void Start()
     {
-        display.GetComponent<TextMesh>().text = calc.display;
+        display.GetComponent<TextMesh>().text = calc.Display;
     }
 
     void Update()
@@ -49,8 +49,8 @@ public class MainBehaviourScript : MonoBehaviour
                 if (hitButton == pressedButton)
                 {
                     Debug.Assert(pressedButton.label.Length == 1);
-                    calc.receive(pressedButton.label[0]);
-                    display.GetComponent<TextMesh>().text = calc.display;
+                    calc.Receive(pressedButton.label[0]);
+                    display.GetComponent<TextMesh>().text = calc.Display;
                 }
                 pressedButton.pressed = false;
                 pressedButton = null;
